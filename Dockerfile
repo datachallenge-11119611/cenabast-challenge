@@ -9,6 +9,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
+# Train model inside the image
+RUN python -m challenge.train
+
 # Expose port 8080 (required by Cloud Run)
 EXPOSE 8080
 
