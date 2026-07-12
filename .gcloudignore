@@ -1,0 +1,21 @@
+# No subir credenciales
+*.json
+service-account.json
+
+# No subir entorno virtual local
+.venv/
+
+# No subir archivos generados localmente
+model.pkl
+.pytest_cache/
+__pycache__/
+*.pyc
+
+# No subir reportes locales
+reports/
+htmlcov/
+.coverage
+
+# No subir metadatos Git
+.git/
+.gitignore

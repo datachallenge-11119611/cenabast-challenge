@@ -1,0 +1,22 @@
+# Entorno virtual local
+.venv/
+
+# Cachés de Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Credenciales / llaves sensibles
+*.json
+
+# Archivos locales / temporales
+.env
+.DS_Store
+
+# Reportes generados por tests
+reports/
+htmlcov/
+.coverage
+
+# Modelo entrenado localmente
+model.pkl

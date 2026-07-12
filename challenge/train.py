@@ -12,15 +12,24 @@ import pandas as pd
 def main():
     model = ReplenishmentModel()
 
-    # Cargar datos
+    # Cargar datos históricos de movimientos.
     movimientos = pd.read_csv("dataset/movimientos.csv")
 
-    # TODO: Preprocesar y entrenar
-    # features, target = model.preprocess(data=movimientos, target_column="cantidad")
-    # model.fit(features=features, target=target)
+    # Preprocesar y entrenar.
+    features, target = model.preprocess(
+        data=movimientos,
+        target_column="cantidad"
+    )
 
-    # TODO: Persistir modelo
-    # model.save("model.pkl")
+    model.fit(
+        features=features,
+        target=target
+    )
+
+    # Persistir modelo entrenado.
+    model.save("model.pkl")
+
+    print("Modelo entrenado y guardado correctamente en model.pkl")
 
 
 if __name__ == "__main__":
