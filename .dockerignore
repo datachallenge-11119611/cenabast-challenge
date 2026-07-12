@@ -1,0 +1,22 @@
+# Credenciales
+*.json
+service-account.json
+
+# Entorno virtual local
+.venv/
+
+# Archivos generados localmente
+model.pkl
+.pytest_cache/
+__pycache__/
+*.pyc
+
+# Reportes locales
+reports/
+htmlcov/
+.coverage
+
+# Git
+.git/
+.gitignore
+.gcloudignore
