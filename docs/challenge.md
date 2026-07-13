@@ -406,3 +406,45 @@ La solución implementa una API funcional para predecir consumo de medicamentos 
 La API permite consultar predicciones por producto y fecha, e incorpora validaciones para productos inexistentes y fechas inválidas.
 
 Desde el punto de vista logístico, la predicción puede ser usada como insumo para definir puntos de pedido, stock de seguridad y cantidades sugeridas de reabastecimiento, reduciendo el riesgo de quiebre y mejorando la planificación de inventario.
+## Despliegue en Cloud Run
+
+La API fue desplegada en Google Cloud Run utilizando una imagen Docker construida localmente y subida a Artifact Registry.
+
+URL de la API desplegada:
+
+```text
+https://cenabast-challenge-823361295040.southamerica-west1.run.app
+```
+
+Validaciones realizadas:
+
+- `GET /health`: respuesta `200 OK`.
+- `POST /predict`: respuesta `200 OK` con predicción para GTIN y fecha válidos.
+- Validaciones de entrada implementadas para productos desconocidos y fechas inválidas.
+
+## Stress test
+
+Se ejecutó un stress test contra la API desplegada en Cloud Run usando Locust.
+
+Configuración utilizada:
+
+- Usuarios: 100
+- Tiempo de ejecución: 60 segundos
+- Endpoint: `/predict`
+- URL base: `https://cenabast-challenge-823361295040.southamerica-west1.run.app`
+
+Resultado resumido:
+
+- Requests totales: 1647
+- Fallas: 0
+- Tasa de fallas: 0.00%
+- Tiempo promedio de respuesta: 1090 ms
+- Tiempo mínimo: 45 ms
+- Tiempo máximo: 2999 ms
+- Mediana: 1000 ms
+
+El reporte HTML fue generado localmente en:
+
+```text
+reports/stress-test.html
+```
